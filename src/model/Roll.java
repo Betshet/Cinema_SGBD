@@ -1,10 +1,10 @@
 package model;
 
-public class Theater {
+public class Roll {
 
-	int id;
+	private int id;
 	
-	public Theater(int id) {
+	public Roll(int id) {
 		this.id = id;
 	}
 
@@ -15,6 +15,7 @@ public class Theater {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	
 	
 }
