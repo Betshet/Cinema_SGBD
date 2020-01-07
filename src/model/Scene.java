@@ -2,18 +2,33 @@ package model;
 
 import java.util.ArrayList;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@DiscriminatorColumn(name="TYPE_SCENE")
 public class Scene {
 
+	@Id
 	private int id;
 	private String desc;
+	
+	@OneToMany
 	private ArrayList<Setup> listSetup;
-	private Location filmLocation;
+	
+	public Scene()
+	{
+		id=-1;
+		desc = null;
+		listSetup = null;
+	}
 	
 	public Scene(int id, String desc, ArrayList<Setup> listSetup, Location filmLocation) {
 		this.id = id;
 		this.desc = desc;
 		this.listSetup = listSetup;
-		this.filmLocation = filmLocation;
 	}
 	
 	public int getId() {
@@ -40,13 +55,6 @@ public class Scene {
 		this.listSetup = listSetup;
 	}
 	
-	public Location getFilmLocation() {
-		return filmLocation;
-	}
-	
-	public void setFilmLocation(Location filmLocation) {
-		this.filmLocation = filmLocation;
-	}
 	
 	
 	
