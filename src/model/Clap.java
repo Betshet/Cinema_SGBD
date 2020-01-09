@@ -1,12 +1,16 @@
 package model;
 
+
+
 public class Clap {
 	
+	
+
 	private int id;
 	private long sceneDuration;
-	private Roll roll;
+	private FilmRoll roll;
 	
-	public Clap(int id, long sceneDuration, Roll roll) {
+	public Clap(int id, long sceneDuration, FilmRoll roll) {
 		this.id = id;
 		this.sceneDuration = sceneDuration;
 		this.roll = roll;
@@ -28,11 +32,11 @@ public class Clap {
 		this.sceneDuration = sceneDuration;
 	}
 	
-	public Roll getRoll() {
+	public FilmRoll getRoll() {
 		return roll;
 	}
 	
-	public void setRoll(Roll roll) {
+	public void setRoll(FilmRoll roll) {
 		this.roll = roll;
 	}
 	

@@ -25,7 +25,7 @@ public class Scene {
 		listSetup = null;
 	}
 	
-	public Scene(int id, String desc, ArrayList<Setup> listSetup, Location filmLocation) {
+	public Scene(int id, String desc, ArrayList<Setup> listSetup) {
 		this.id = id;
 		this.desc = desc;
 		this.listSetup = listSetup;

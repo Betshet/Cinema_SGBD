@@ -6,8 +6,8 @@ public class IndoorScene extends Scene {
 
 	private Theater theater;
 
-	public IndoorScene(int id, String desc, ArrayList<Setup> listSetup, Location filmLocation, Theater theater) {
-		super(id, desc, listSetup, filmLocation);
+	public IndoorScene(int id, String desc, ArrayList<Setup> listSetup, Theater theater) {
+		super(id, desc, listSetup);
 		this.theater = theater;
 	}
 
