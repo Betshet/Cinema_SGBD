@@ -5,13 +5,22 @@ import java.util.ArrayList;
 public class OutdoorScene extends Scene {
 
 	private Location location;
-	private long shootingTime;
+	private String shootingHour;
 	
-	public OutdoorScene(int id, String desc, ArrayList<Setup> listSetup, Location location,
-			long shootingTime) {
+	public OutdoorScene(int id, String desc, ArrayList<Setup> listSetup, Location location, String shootingHour) {
 		super(id, desc, listSetup);
-		this.location = location;
-		this.shootingTime = shootingTime;
+		try {		
+			this.location = location;
+			this.shootingHour = shootingHour;
+			if(!shootingHour.equals("DAWN")&!shootingHour.equals("DAY")&!shootingHour.equals("DUSK")&!shootingHour.equals("NIGHT"))
+			{
+				throw new IllegalArgumentException();
+			}
+		}		
+		catch(IllegalArgumentException i)
+		{
+			System.out.println("Wrong shootingHour ! Choose between DAWN, DAY, DUSK or NIGHT.");
+		}
 	}
 	public Location getLocation() {
 		return location;
@@ -19,11 +28,11 @@ public class OutdoorScene extends Scene {
 	public void setLocation(Location location) {
 		this.location = location;
 	}
-	public long getShootingTime() {
-		return shootingTime;
+	public String getShootingTime() {
+		return shootingHour;
 	}
-	public void setShootingTime(long shootingTime) {
-		this.shootingTime = shootingTime;
+	public void setShootingTime(String shootingHour) {
+		this.shootingHour = shootingHour;
 	}
 	
 	

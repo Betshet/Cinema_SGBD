@@ -51,9 +51,6 @@ public class mainClass {
 		SceneWindow scWindow = new SceneWindow(scList);
 		scWindow.afficher();
 		
-		
-		//SceneWindow window = new SceneWindow();
-		//window.afficher();
 
 		//EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
 		//EntityManager em = entityManagerFactory.createEntityManager();
