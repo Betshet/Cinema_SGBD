@@ -54,10 +54,10 @@ public class mainClass {
 
 		SceneWindow scWindow = new SceneWindow(scList);
 		
-		em.getTransaction().begin();
-		em.persist(roll);
+		//em.getTransaction().begin();
+		//em.persist(roll);
 		//em.persist(scList); //pas sur
-		em.getTransaction().commit();
+		//em.getTransaction().commit();
 		
 		em.close();
 		
