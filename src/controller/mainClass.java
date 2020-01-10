@@ -26,7 +26,7 @@ public class mainClass {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
 		EntityManager em = entityManagerFactory.createEntityManager();
 
-		FilmRoll roll = new FilmRoll();
+		FilmRoll roll = new FilmRoll(1);
 
 		ArrayList<Clap> clapList = new ArrayList<Clap>();
 		clapList.add(new Clap(1, 370, roll) );
@@ -50,7 +50,7 @@ public class mainClass {
 		Location loc = new Location(1,"Paris","la tour eiffel wesh");
 
 		ArrayList<Scene> scList = new ArrayList<Scene>();
-		scList.add( new OutdoorScene(1, "Lorem Ipsum", setupList, loc, 0));
+		scList.add( new OutdoorScene(1, "Lorem Ipsum", setupList, loc, "DAY"));
 
 		SceneWindow scWindow = new SceneWindow(scList);
 		scWindow.afficher();

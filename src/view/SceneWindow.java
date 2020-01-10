@@ -11,6 +11,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
+import controller.control;
 import model.Clap;
 import model.IndoorScene;
 import model.OutdoorScene;
@@ -18,6 +19,7 @@ import model.Scene;
 import model.Setup;
 
 import javax.swing.JButton;
+import javax.sound.sampled.Control;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JScrollPane;
@@ -62,7 +64,9 @@ public class SceneWindow extends JFrame {
 		
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
-	            System.out.println(table.getValueAt(table.getSelectedRow(), 1));
+	            control ctrl = new control();
+	            ctrl.launchSetupWindow((int)table.getValueAt(table.getSelectedRow(), 0));
+	           
 	        }
 	    });
 	}
