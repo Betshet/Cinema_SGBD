@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import model.Clap;
@@ -34,7 +36,7 @@ public class SceneWindow extends JFrame {
 	 */
 	public SceneWindow(ArrayList<Scene> sceneList) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 800, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -58,6 +60,11 @@ public class SceneWindow extends JFrame {
 		
 		contentPane.setLayout(gl_contentPane);
 		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+	        public void valueChanged(ListSelectionEvent event) {
+	            System.out.println(table.getValueAt(table.getSelectedRow(), 1));
+	        }
+	    });
 	}
 	
 	public void afficher()
@@ -73,11 +80,11 @@ public class SceneWindow extends JFrame {
 			obj[i][1] = sc.getDesc();
 			if(sc instanceof IndoorScene) {
 				obj[i][2] = "Indoor";
-				obj[i][3] = ((IndoorScene) sc).getTheater();
+				obj[i][3] = ((IndoorScene) sc).getTheater().getId();
 			}
 			else {
 				obj[i][2] = "Outdoor";
-				obj[i][3] = ((OutdoorScene) sc).getLocation();
+				obj[i][3] = ((OutdoorScene) sc).getLocation().getPlace();
 			}
 			
 			int totalTime = 0;
@@ -86,7 +93,7 @@ public class SceneWindow extends JFrame {
 					totalTime += clap.getSceneDuration();
 				}
 			}
-			obj[i][4] = totalTime;
+			obj[i][4] = Double.toString(Math.round(totalTime/3600.0 * 100.0)/100.0)+"h";
 		}
 		return obj;
 	}
