@@ -19,9 +19,6 @@ public class mainClass {
 
 	public static void main(String[] args) {
 		
-		Location loc = new Location(1,"Paris","la tour eiffel wesh");
-		IndoorScene sc = new IndoorScene(/*0,"description lol"*/);
-		
 		
 		//SceneWindow window = new SceneWindow();
 		//window.afficher();
