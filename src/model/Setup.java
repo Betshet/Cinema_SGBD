@@ -2,10 +2,16 @@ package model;
 
 import java.util.ArrayList;
 
+import javax.persistence.*;
+
+@Entity
 public class Setup {
 
+	@Id
 	private int id;
 	private String desc;
+	
+	@OneToMany
 	private ArrayList<Clap> listClaps;
 	
 	

@@ -1,13 +1,17 @@
 package model;
 
+import javax.persistence.*;
 
-
+@Entity
 public class Clap {
 	
 	
 
+	@Id
 	private int id;
 	private long sceneDuration;
+	
+	@OneToOne
 	private FilmRoll roll;
 	
 	public Clap(int id, long sceneDuration, FilmRoll roll) {
