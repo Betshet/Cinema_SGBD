@@ -1,6 +1,5 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -9,6 +8,7 @@ import javax.persistence.*;
 public class IndoorScene extends Scene {
 
 	@OneToOne
+	@JoinColumn(name="THEATER_ID")
 	private Theater theater;
 
 	public IndoorScene(int id, String desc, List<Setup> listSetup, Theater theater) {

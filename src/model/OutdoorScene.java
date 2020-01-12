@@ -9,6 +9,7 @@ import javax.persistence.*;
 public class OutdoorScene extends Scene {
 
 	@OneToOne
+	@JoinColumn(name="LOCATION_ID")
 	private Location location;
 	private String shootingHour;
 	

@@ -1,6 +1,5 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -10,7 +9,7 @@ public class Setup {
 
 	@Id
 	private int id;
-	private String desc;
+	private String setupDescription;
 	
 	@OneToMany
 	private List<Clap> listClaps;
@@ -19,7 +18,7 @@ public class Setup {
 	public Setup(int id, String desc, List<Clap> listClaps) {
 		super();
 		this.id = id;
-		this.desc = desc;
+		this.setupDescription = desc;
 		this.listClaps = listClaps;
 	}
 	public int getId() {
@@ -29,10 +28,10 @@ public class Setup {
 		this.id = id;
 	}
 	public String getDesc() {
-		return desc;
+		return setupDescription;
 	}
 	public void setDesc(String desc) {
-		this.desc = desc;
+		this.setupDescription = desc;
 	}
 	public List<Clap> getListClaps() {
 		return listClaps;

@@ -1,19 +1,17 @@
 package model;
 
 import java.util.List;
-
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-@DiscriminatorColumn(name="TYPE_SCENE")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name="TYPE_SCENE")
 public class Scene {
 
 	@Id
 	private int id;
-	private String desc;
+	private String sceneDescription;
 	
 	@OneToMany
 	private List<Setup> listSetup;
@@ -21,13 +19,13 @@ public class Scene {
 	public Scene()
 	{
 		id=-1;
-		desc = null;
+		sceneDescription = null;
 		listSetup = null;
 	}
 	
 	public Scene(int id, String desc, List<Setup> listSetup) {
 		this.id = id;
-		this.desc = desc;
+		this.sceneDescription = desc;
 		this.listSetup = listSetup;
 	}
 	
@@ -40,11 +38,11 @@ public class Scene {
 	}
 	
 	public String getDesc() {
-		return desc;
+		return sceneDescription;
 	}
 	
 	public void setDesc(String desc) {
-		this.desc = desc;
+		this.sceneDescription = desc;
 	}
 	
 	public List<Setup> getListSetup() {
