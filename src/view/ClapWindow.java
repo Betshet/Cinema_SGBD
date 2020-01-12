@@ -3,6 +3,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -36,7 +37,7 @@ public class ClapWindow extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ClapWindow(ArrayList<Clap> clapList) {
+	public ClapWindow(List<Clap> clapList) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 400);
 		contentPane = new JPanel();
@@ -76,7 +77,7 @@ public class ClapWindow extends JFrame {
 		setVisible(true);
 	}
 	
-	public Object[][] convert(ArrayList<Clap> clapList){
+	public Object[][] convert(List<Clap> clapList){
 		Object[][] obj = new Object[clapList.size()][3];
 		for(int i = 0; i < clapList.size(); i++) {
 			Clap cl = clapList.get(i);

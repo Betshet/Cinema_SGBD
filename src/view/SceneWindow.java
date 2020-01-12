@@ -3,6 +3,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -36,7 +37,7 @@ public class SceneWindow extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SceneWindow(ArrayList<Scene> sceneList) {
+	public SceneWindow(List<Scene> sceneList) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 400);
 		contentPane = new JPanel();
@@ -76,7 +77,7 @@ public class SceneWindow extends JFrame {
 		setVisible(true);
 	}
 	
-	public Object[][] convert(ArrayList<Scene> sceneList){
+	public Object[][] convert(List<Scene> sceneList){
 		Object[][] obj = new Object[sceneList.size()][5];
 		for(int i = 0; i < sceneList.size(); i++) {
 			Scene sc = sceneList.get(i);

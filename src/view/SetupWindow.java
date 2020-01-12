@@ -3,6 +3,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -36,7 +37,7 @@ public class SetupWindow extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SetupWindow(ArrayList<Setup> setupList) {
+	public SetupWindow(List<Setup> setupList) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 400);
 		contentPane = new JPanel();
@@ -76,7 +77,7 @@ public class SetupWindow extends JFrame {
 		setVisible(true);
 	}
 	
-	public Object[][] convert(ArrayList<Setup> setupList){
+	public Object[][] convert(List<Setup> setupList){
 		Object[][] obj = new Object[setupList.size()][3];
 		for(int i = 0; i < setupList.size(); i++) {
 			Setup st = setupList.get(i);
