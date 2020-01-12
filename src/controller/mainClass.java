@@ -1,7 +1,9 @@
 package controller;
 
 
+import view.ClapWindow;
 import view.SceneWindow;
+import view.SetupWindow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,8 @@ public class mainClass {
 	public static void main(String[] args) {
 
 
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
-		EntityManager em = entityManagerFactory.createEntityManager();
+		//EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
+		//EntityManager em = entityManagerFactory.createEntityManager();
 
 		FilmRoll roll = new FilmRoll(1);
 
@@ -51,7 +53,7 @@ public class mainClass {
 		scList.add( new OutdoorScene(1, "Lorem Ipsum", setupList, loc, "DAY"));
 
 		//SceneWindow scWindow = new SceneWindow(scList);
-		
+
 		em.getTransaction().begin();
 		em.persist(loc);
 		em.persist(roll);
@@ -68,11 +70,16 @@ public class mainClass {
 			em.persist(current);
 		}
 		em.getTransaction().commit();
-		
+
 		em.close();
-		
-		
-		//scWindow.afficher();
+
+
+		SceneWindow scW = new SceneWindow(scList);
+		scW.afficher();
+		SetupWindow stW = new SetupWindow(setupList);
+		stW.afficher();
+		ClapWindow clW = new ClapWindow(clapList);
+		clW.afficher();
 
 
 
