@@ -23,8 +23,8 @@ public class mainClass {
 	public static void main(String[] args) {
 
 
-		//EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
-		//EntityManager em = entityManagerFactory.createEntityManager();
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
+		EntityManager em = entityManagerFactory.createEntityManager();
 
 		FilmRoll roll = new FilmRoll(1);
 
@@ -48,6 +48,7 @@ public class mainClass {
 		setupList.add(new Setup(2, "Ceci est une description : le retour", clapList2));
 
 		Location loc = new Location(1,"Paris","la tour eiffel wesh");
+
 
 		List<Scene> scList = new ArrayList<Scene>();
 		scList.add( new OutdoorScene(1, "Lorem Ipsum", setupList, loc, "DAY"));
