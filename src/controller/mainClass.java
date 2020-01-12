@@ -1,7 +1,9 @@
 package controller;
 
 
+import view.ClapWindow;
 import view.SceneWindow;
+import view.SetupWindow;
 
 import java.util.ArrayList;
 
@@ -37,11 +39,11 @@ public class mainClass {
 
 
 		ArrayList<Clap> clapList2 = new ArrayList<Clap>();
-		clapList.add(new Clap(6, 842, roll) );
-		clapList.add(new Clap(7, 37, roll) );
-		clapList.add( new Clap(8, 82, roll) );
-		clapList.add(new Clap(9, 180, roll));
-		clapList.add(new Clap(10, 372, roll));
+		clapList2.add(new Clap(6, 842, roll) );
+		clapList2.add(new Clap(7, 37, roll) );
+		clapList2.add( new Clap(8, 82, roll) );
+		clapList2.add(new Clap(9, 180, roll));
+		clapList2.add(new Clap(10, 372, roll));
 
 		ArrayList<Setup> setupList = new ArrayList<Setup>();
 		setupList.add(new Setup(1, "Ceci est une description", clapList));
@@ -52,8 +54,15 @@ public class mainClass {
 		ArrayList<Scene> scList = new ArrayList<Scene>();
 		scList.add( new OutdoorScene(1, "Lorem Ipsum", setupList, loc, "DAY"));
 
-		controlWindow ctrlWindow = new controlWindow();
-		ctrlWindow.launchSceneWindow();
+		//controlWindow ctrlWindow = new controlWindow();
+		//ctrlWindow.launchSceneWindow();
+		
+		SceneWindow scW = new SceneWindow(scList);
+		scW.afficher();
+		SetupWindow stW = new SetupWindow(setupList);
+		stW.afficher();
+		ClapWindow clW = new ClapWindow(clapList);
+		clW.afficher();
 
 
 

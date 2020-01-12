@@ -37,12 +37,12 @@ public class ClapWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public ClapWindow(ArrayList<Clap> clapList) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		String[] columns = {"Setup ID", "Description", "Total time"};
+		String[] columns = {"Clap ID", "Duration", "Film roll ID"};
 
 		DefaultTableModel model = new DefaultTableModel(convert(clapList),columns);
 		table = new JTable(model);
@@ -81,7 +81,7 @@ public class ClapWindow extends JFrame {
 		for(int i = 0; i < clapList.size(); i++) {
 			Clap cl = clapList.get(i);
 			obj[i][0] = cl.getId();
-			obj[i][1] = cl.getSceneDuration();
+			obj[i][1] = Double.toString(Math.round(cl.getSceneDuration()/3600.0 * 100.0)/100.0)+"h";
 			obj[i][2] = cl.getRoll().getId();
 		}
 		return obj;
