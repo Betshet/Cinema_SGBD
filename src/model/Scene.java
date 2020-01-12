@@ -1,6 +1,6 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
@@ -16,7 +16,7 @@ public class Scene {
 	private String desc;
 	
 	@OneToMany
-	private ArrayList<Setup> listSetup;
+	private List<Setup> listSetup;
 	
 	public Scene()
 	{
@@ -25,7 +25,7 @@ public class Scene {
 		listSetup = null;
 	}
 	
-	public Scene(int id, String desc, ArrayList<Setup> listSetup) {
+	public Scene(int id, String desc, List<Setup> listSetup) {
 		this.id = id;
 		this.desc = desc;
 		this.listSetup = listSetup;
@@ -47,11 +47,11 @@ public class Scene {
 		this.desc = desc;
 	}
 	
-	public ArrayList<Setup> getListSetup() {
+	public List<Setup> getListSetup() {
 		return listSetup;
 	}
 	
-	public void setListSetup(ArrayList<Setup> listSetup) {
+	public void setListSetup(List<Setup> listSetup) {
 		this.listSetup = listSetup;
 	}
 	

@@ -1,7 +1,11 @@
 package model;
+import javax.persistence.*;
 
+
+@Entity
 public class Location {
 	
+	@Id
 	private int id;
 	private String place;
 	private String desc;

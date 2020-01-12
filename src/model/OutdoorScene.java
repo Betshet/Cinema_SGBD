@@ -1,13 +1,18 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.*;
+
+
+@Entity
 public class OutdoorScene extends Scene {
 
+	@OneToOne
 	private Location location;
 	private String shootingHour;
 	
-	public OutdoorScene(int id, String desc, ArrayList<Setup> listSetup, Location location, String shootingHour) {
+	public OutdoorScene(int id, String desc, List<Setup> listSetup, Location location, String shootingHour) {
 		super(id, desc, listSetup);
 		try {		
 			this.location = location;

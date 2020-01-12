@@ -52,12 +52,17 @@ public class mainClass {
 		ArrayList<Scene> scList = new ArrayList<Scene>();
 		scList.add( new OutdoorScene(1, "Lorem Ipsum", setupList, loc, "DAY"));
 
-		SceneWindow scWindow = new SceneWindow(scList);
+		//SceneWindow scWindow = new SceneWindow(scList);
 		
-		//em.getTransaction().begin();
-		//em.persist(roll);
+		em.getTransaction().begin();
+		em.persist(scList);
+		em.persist(loc);
+		em.persist(setupList);
+		em.persist(clapList2);
+		em.persist(clapList);
+		em.persist(roll);
 		//em.persist(scList); //pas sur
-		//em.getTransaction().commit();
+		em.getTransaction().commit();
 		
 		em.close();
 		
