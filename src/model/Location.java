@@ -1,15 +1,19 @@
 package model;
+import javax.persistence.*;
 
+
+@Entity
 public class Location {
 	
+	@Id
 	private int id;
 	private String place;
-	private String desc;
+	private String placeDescription;
 	
 	public Location(int id, String place, String desc) {
 		this.id = id;
 		this.place = place;
-		this.desc = desc;
+		this.placeDescription = desc;
 	}
 
 	public int getId() {
@@ -29,11 +33,11 @@ public class Location {
 	}
 
 	public String getDesc() {
-		return desc;
+		return placeDescription;
 	}
 
 	public void setDesc(String desc) {
-		this.desc = desc;
+		this.placeDescription = desc;
 	}
 
 	

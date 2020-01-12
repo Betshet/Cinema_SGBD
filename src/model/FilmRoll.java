@@ -1,7 +1,12 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class FilmRoll {
 
+@Id
 private int id;
 	
 	public FilmRoll(int id) {

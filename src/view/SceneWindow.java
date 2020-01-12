@@ -1,7 +1,4 @@
 package view;
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +22,6 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class SceneWindow extends JFrame {
 
@@ -59,24 +55,24 @@ public class SceneWindow extends JFrame {
 					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 249, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(186, Short.MAX_VALUE))
 		);
-		
-		
+
+
 		contentPane.setLayout(gl_contentPane);
-		
+
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
 	            controlWindow ctrl = new controlWindow();
 	            ctrl.launchSetupWindow((int)table.getValueAt(table.getSelectedRow(), 0));
-	           
+
 	        }
 	    });
 	}
-	
+
 	public void afficher()
 	{
 		setVisible(true);
 	}
-	
+
 	public Object[][] convert(List<Scene> sceneList){
 		Object[][] obj = new Object[sceneList.size()][5];
 		for(int i = 0; i < sceneList.size(); i++) {
@@ -91,7 +87,7 @@ public class SceneWindow extends JFrame {
 				obj[i][2] = "Outdoor";
 				obj[i][3] = ((OutdoorScene) sc).getLocation().getPlace();
 			}
-			
+
 			int totalTime = 0;
 			for(Setup setup : sc.getListSetup()) {
 				for(Clap clap : setup.getListClaps()) {
@@ -102,5 +98,5 @@ public class SceneWindow extends JFrame {
 		}
 		return obj;
 	}
-	
+
 }

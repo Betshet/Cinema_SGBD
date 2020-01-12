@@ -1,7 +1,11 @@
 package model;
+import javax.persistence.*;
 
+
+@Entity
 public class Theater {
 
+	@Id
 	int id;
 	
 	public Theater(int id) {
