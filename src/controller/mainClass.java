@@ -23,8 +23,8 @@ public class mainClass {
 	public static void main(String[] args) {
 
 
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
-		EntityManager em = entityManagerFactory.createEntityManager();
+		//EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
+		//EntityManager em = entityManagerFactory.createEntityManager();
 
 		FilmRoll roll = new FilmRoll(1);
 
@@ -52,8 +52,8 @@ public class mainClass {
 		ArrayList<Scene> scList = new ArrayList<Scene>();
 		scList.add( new OutdoorScene(1, "Lorem Ipsum", setupList, loc, "DAY"));
 
-		SceneWindow scWindow = new SceneWindow(scList);
-		scWindow.afficher();
+		controlWindow ctrlWindow = new controlWindow();
+		ctrlWindow.launchSceneWindow();
 
 
 

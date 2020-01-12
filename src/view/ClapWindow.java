@@ -26,7 +26,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-public class SceneWindow extends JFrame {
+public class ClapWindow extends JFrame {
 
 
 	private static final long serialVersionUID = 1L;
@@ -36,15 +36,15 @@ public class SceneWindow extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SceneWindow(ArrayList<Scene> sceneList) {
+	public ClapWindow(ArrayList<Clap> clapList) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		String[] columns = {"Scene ID", "Description", "Indoor/Outdoor","Location/Theater ID", "Total time"};
+		String[] columns = {"Setup ID", "Description", "Total time"};
 
-		DefaultTableModel model = new DefaultTableModel(convert(sceneList),columns);
+		DefaultTableModel model = new DefaultTableModel(convert(clapList),columns);
 		table = new JTable(model);
 		JScrollPane scrollPane = new JScrollPane(table);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
@@ -65,7 +65,7 @@ public class SceneWindow extends JFrame {
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
 	            controlWindow ctrl = new controlWindow();
-	            ctrl.launchSetupWindow((int)table.getValueAt(table.getSelectedRow(), 0));
+	            ctrl.launchClapWindow((int)table.getValueAt(table.getSelectedRow(), 0));
 	           
 	        }
 	    });
@@ -76,28 +76,13 @@ public class SceneWindow extends JFrame {
 		setVisible(true);
 	}
 	
-	public Object[][] convert(ArrayList<Scene> sceneList){
-		Object[][] obj = new Object[sceneList.size()][5];
-		for(int i = 0; i < sceneList.size(); i++) {
-			Scene sc = sceneList.get(i);
-			obj[i][0] = sc.getId();
-			obj[i][1] = sc.getDesc();
-			if(sc instanceof IndoorScene) {
-				obj[i][2] = "Indoor";
-				obj[i][3] = ((IndoorScene) sc).getTheater().getId();
-			}
-			else {
-				obj[i][2] = "Outdoor";
-				obj[i][3] = ((OutdoorScene) sc).getLocation().getPlace();
-			}
-			
-			int totalTime = 0;
-			for(Setup setup : sc.getListSetup()) {
-				for(Clap clap : setup.getListClaps()) {
-					totalTime += clap.getSceneDuration();
-				}
-			}
-			obj[i][4] = Double.toString(Math.round(totalTime/3600.0 * 100.0)/100.0)+"h";
+	public Object[][] convert(ArrayList<Clap> clapList){
+		Object[][] obj = new Object[clapList.size()][3];
+		for(int i = 0; i < clapList.size(); i++) {
+			Clap cl = clapList.get(i);
+			obj[i][0] = cl.getId();
+			obj[i][1] = cl.getSceneDuration();
+			obj[i][2] = cl.getRoll().getId();
 		}
 		return obj;
 	}
