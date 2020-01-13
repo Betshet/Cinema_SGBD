@@ -13,6 +13,12 @@ public class OutdoorScene extends Scene {
 	private Location location;
 	private String shootingHour;
 	
+	public OutdoorScene()
+	{
+		location=null;
+		shootingHour=null;
+	}
+	
 	public OutdoorScene(int id, String desc, List<Setup> listSetup, Location location, String shootingHour) {
 		super(id, desc, listSetup);
 		try {		

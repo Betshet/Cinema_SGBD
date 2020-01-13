@@ -10,6 +10,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.SessionFactory;
+
 import model.Clap;
 import model.FilmRoll;
 import model.Location;
@@ -72,15 +74,24 @@ public class mainClass {
 		}
 		em.getTransaction().commit();
 
+		/*Scene temp = em.find(Scene.class, 1);
+		System.out.println(temp.getDesc()+" "+temp.getId());*/
+		
+		
 		em.close();
 
+		DAOScene test=new DAOScene(entityManagerFactory);
+		ArrayList<Scene> buffer = test.findAllScene();
+		System.out.println(buffer.get(0).getDesc());
 
-		SceneWindow scW = new SceneWindow(scList);
+		
+
+		/*SceneWindow scW = new SceneWindow(scList);
 		scW.afficher();
 		SetupWindow stW = new SetupWindow(setupList);
 		stW.afficher();
 		ClapWindow clW = new ClapWindow(clapList);
-		clW.afficher();
+		clW.afficher();*/
 
 
 

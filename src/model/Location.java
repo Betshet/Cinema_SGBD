@@ -10,6 +10,12 @@ public class Location {
 	private String place;
 	private String placeDescription;
 	
+	public Location() {
+		id=-1;
+		place=null;
+		placeDescription=null;
+	}
+	
 	public Location(int id, String place, String desc) {
 		this.id = id;
 		this.place = place;
