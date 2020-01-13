@@ -24,35 +24,17 @@ public class DAOScene {
 		em.getTransaction().begin();
 		
 		ArrayList<Scene> resultat = new ArrayList<Scene>();
-		String queryString = "select scene from Scene scene";
+		String queryString = "select s from Scene s";
 		Query query = em.createQuery(queryString);
 		ArrayList<Scene> results = (ArrayList<Scene>) query.getResultList();
 		
 		for (int i = 0; i < results.size(); i++) {
-			Scene scene = (Scene) results.get(i);
-			resultat.add(scene);
+			resultat.add((Scene) results.get(i));
 		}
 		em.getTransaction().commit();
 		em.close();
 		return resultat;
 	}
-	
-	
-	/*public static List<SceneExterieur> retrunAllSceneExterieur() {
-		EntityManager em = Connexion.ouvrirconnexion();
-		em.getTransaction().begin();
-		ArrayList<SceneExterieur> resultat = new ArrayList<SceneExterieur>();
-		String queryString = "select s from SceneExterieur s";
-		Query query = em.createQuery(queryString);
-		List results = query.getResultList();
-		for (int i = 0; i < results.size(); i++) {
-			SceneExterieur SceneExterieur = (SceneExterieur) results.get(i);
-			resultat.add(SceneExterieur);
-		}
-		em.getTransaction().commit();
-		Connexion.fermerconnexion(em);
-		return resultat;
-	};*/
 	
 	
 	

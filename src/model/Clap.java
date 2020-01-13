@@ -14,6 +14,12 @@ public class Clap {
 	@OneToOne
 	private FilmRoll roll;
 	
+	public Clap() {
+		this.id = -1;
+		this.sceneDuration = -1;
+		this.roll = null;
+	}
+	
 	public Clap(int id, long sceneDuration, FilmRoll roll) {
 		this.id = id;
 		this.sceneDuration = sceneDuration;

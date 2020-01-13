@@ -9,6 +9,10 @@ public class FilmRoll {
 @Id
 private int id;
 	
+public FilmRoll() {
+	this.id = -1;
+}
+
 	public FilmRoll(int id) {
 		this.id = id;
 	}

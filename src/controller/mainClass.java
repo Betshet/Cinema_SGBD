@@ -14,6 +14,7 @@ import org.hibernate.SessionFactory;
 
 import model.Clap;
 import model.FilmRoll;
+import model.IndoorScene;
 import model.Location;
 import model.OutdoorScene;
 import model.Scene;
@@ -80,9 +81,13 @@ public class mainClass {
 		
 		em.close();
 
-		DAOScene test=new DAOScene(entityManagerFactory);
-		ArrayList<Scene> buffer = test.findAllScene();
-		System.out.println(buffer.get(0).getDesc());
+		DAOSetup test=new DAOSetup(entityManagerFactory);
+		ArrayList<Setup> buffer = test.findAllSetup();
+		for(Setup current : buffer)
+		{
+			System.out.println(current.getId());
+		}
+		
 
 		
 

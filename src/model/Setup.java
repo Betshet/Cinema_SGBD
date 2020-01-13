@@ -14,6 +14,12 @@ public class Setup {
 	@OneToMany
 	private List<Clap> listClaps;
 	
+	public Setup() {
+		this.id = -1;
+		this.setupDescription = null;
+		this.listClaps = null;
+	}
+	
 	
 	public Setup(int id, String desc, List<Clap> listClaps) {
 		super();
