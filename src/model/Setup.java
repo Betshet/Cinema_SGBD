@@ -8,16 +8,18 @@ import javax.persistence.*;
 public class Setup {
 
 	@Id
-	private int id;
+	private static int id = 0;
 	private String setupDescription;
 	
 	@OneToMany
 	private List<Clap> listClaps;
 	
+	@ManyToOne
+	private Scene sc;
 	
-	public Setup(int id, String desc, List<Clap> listClaps) {
-		super();
-		this.id = id;
+	
+	public Setup(String desc, List<Clap> listClaps, Scene sc) {
+		Setup.id++;
 		this.setupDescription = desc;
 		this.listClaps = listClaps;
 	}
@@ -25,7 +27,7 @@ public class Setup {
 		return id;
 	}
 	public void setId(int id) {
-		this.id = id;
+		Setup.id = id;
 	}
 	public String getDesc() {
 		return setupDescription;
@@ -38,6 +40,12 @@ public class Setup {
 	}
 	public void setListClaps(List<Clap> listClaps) {
 		this.listClaps = listClaps;
+	}
+	public Scene getSc() {
+		return sc;
+	}
+	public void setSc(Scene sc) {
+		this.sc = sc;
 	}
 	
 	

@@ -8,14 +8,17 @@ public class Clap {
 	
 
 	@Id
-	private int id;
+	private static int id = 0;
 	private long sceneDuration;
 	
-	@OneToOne
+	@ManyToOne
 	private FilmRoll roll;
 	
-	public Clap(int id, long sceneDuration, FilmRoll roll) {
-		this.id = id;
+	@ManyToOne
+	private Setup setup;
+	
+	public Clap(long sceneDuration, FilmRoll roll, Setup setup) {
+		Clap.id++;
 		this.sceneDuration = sceneDuration;
 		this.roll = roll;
 	}
@@ -25,7 +28,7 @@ public class Clap {
 	}
 	
 	public void setId(int id) {
-		this.id = id;
+		Clap.id = id;
 	}
 	
 	public long getSceneDuration() {
@@ -42,6 +45,14 @@ public class Clap {
 	
 	public void setRoll(FilmRoll roll) {
 		this.roll = roll;
+	}
+
+	public Setup getSetup() {
+		return setup;
+	}
+
+	public void setSetup(Setup setup) {
+		this.setup = setup;
 	}
 	
 	

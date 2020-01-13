@@ -7,10 +7,12 @@ import javax.persistence.Id;
 public class FilmRoll {
 
 @Id
-private int id;
+private static int id;
+
+ 
 	
-	public FilmRoll(int id) {
-		this.id = id;
+	public FilmRoll() {
+		FilmRoll.id++;
 	}
 
 	public int getId() {
