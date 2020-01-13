@@ -26,8 +26,8 @@ public class mainClass {
 	public static void main(String[] args) {
 
 
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
-		EntityManager em = entityManagerFactory.createEntityManager();
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("test");
+		EntityManager em = factory.createEntityManager();
 
 		FilmRoll roll = new FilmRoll(1);
 
@@ -56,7 +56,7 @@ public class mainClass {
 		List<Scene> scList = new ArrayList<Scene>();
 		scList.add( new OutdoorScene(1, "Lorem Ipsum", setupList, loc, "DAY"));
 
-		//SceneWindow scWindow = new SceneWindow(scList);
+		
 
 		em.getTransaction().begin();
 		em.persist(loc);
@@ -81,16 +81,17 @@ public class mainClass {
 		
 		em.close();
 
-		DAOSetup test=new DAOSetup(entityManagerFactory);
+		/*DAOSetup test=new DAOSetup(factory);
 		ArrayList<Setup> buffer = test.findAllSetup();
 		for(Setup current : buffer)
 		{
 			System.out.println(current.getId());
-		}
+		}*/
 		
 
 		
-
+		controlWindow control = new controlWindow(factory);
+		control.launchSceneWindow();
 		/*SceneWindow scW = new SceneWindow(scList);
 		scW.afficher();
 		SetupWindow stW = new SetupWindow(setupList);
