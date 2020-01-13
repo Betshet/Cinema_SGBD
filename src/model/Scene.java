@@ -10,6 +10,7 @@ import javax.persistence.*;
 public class Scene {
 
 	@Id
+	//TODO Generation auto d'id
 	private int id;
 	private String sceneDescription;
 	

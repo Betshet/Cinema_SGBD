@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class Setup {
 
 	@Id
+	//TODO Generation auto d'id
 	private static int id = 0;
 	private String setupDescription;
 	

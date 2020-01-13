@@ -8,6 +8,7 @@ public class Clap {
 	
 
 	@Id
+	//TODO Generation auto d'id
 	private static int id = 0;
 	private long sceneDuration;
 	
