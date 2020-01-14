@@ -59,7 +59,7 @@ public class mainClass {
 		
 		em.close();
 		
-		controlWindow control = new controlWindow(factory);
+		controlWindow control = new controlWindow(entityManagerFactory);
 		control.launchSceneWindow();
 
 	}
