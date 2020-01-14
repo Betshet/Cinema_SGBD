@@ -13,7 +13,7 @@ public class Scene {
 	private int id;
 	private String sceneDescription;
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Setup> listSetup;
 	
 	public Scene()

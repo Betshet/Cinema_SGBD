@@ -28,7 +28,7 @@ public class controlWindow {
 		DAOScene control=new DAOScene(entityManagerFactory);
 		ArrayList<Scene> buffer = control.findAllScene();
 		
-		SceneWindow sceneWindow = new SceneWindow(buffer);
+		SceneWindow sceneWindow = new SceneWindow(buffer,entityManagerFactory);
 		sceneWindow.afficher();
 	}
 	
@@ -37,7 +37,7 @@ public class controlWindow {
 		DAOSetup control=new DAOSetup(entityManagerFactory);
 		ArrayList<Setup> buffer = control.findAllSetup();
 		
-		SetupWindow setupWindow = new SetupWindow(buffer);
+		SetupWindow setupWindow = new SetupWindow(buffer,entityManagerFactory);
 		setupWindow.afficher();
 	}
 	
@@ -46,7 +46,7 @@ public class controlWindow {
 		DAOClap control=new DAOClap(entityManagerFactory);
 		ArrayList<Clap> buffer = control.findAllClap();
 		
-		ClapWindow clapWindow = new ClapWindow(buffer);
+		ClapWindow clapWindow = new ClapWindow(buffer,entityManagerFactory);
 		clapWindow.afficher();
 	}
 }

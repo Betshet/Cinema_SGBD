@@ -17,6 +17,7 @@ import model.Scene;
 import model.Setup;
 
 import javax.swing.JButton;
+import javax.persistence.EntityManagerFactory;
 import javax.sound.sampled.Control;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -29,11 +30,14 @@ public class SceneWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
+	
+	private EntityManagerFactory factory;
 
 	/**
 	 * Create the frame.
 	 */
-	public SceneWindow(List<Scene> sceneList) {
+	public SceneWindow(List<Scene> sceneList,EntityManagerFactory factory) {
+		this.factory=factory;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 400);
 		contentPane = new JPanel();
@@ -61,7 +65,7 @@ public class SceneWindow extends JFrame {
 
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
-	            controlWindow ctrl = new controlWindow();
+	            controlWindow ctrl = new controlWindow(factory);
 	            ctrl.launchSetupWindow((int)table.getValueAt(table.getSelectedRow(), 0));
 
 	        }

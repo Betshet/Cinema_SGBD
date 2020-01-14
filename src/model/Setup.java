@@ -11,7 +11,7 @@ public class Setup {
 	private int id;
 	private String setupDescription;
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Clap> listClaps;
 	
 	public Setup() {
