@@ -49,7 +49,13 @@ public class SetupWindow extends JFrame {
 		setContentPane(contentPane);
 		String[] columns = {"Setup ID", "Description", "Total time"};
 
-		DefaultTableModel model = new DefaultTableModel(convert(setupList),columns);
+		DefaultTableModel model = new DefaultTableModel(convert(setupList),columns){
+			@Override
+		    public boolean isCellEditable(int row, int column) {
+		       //all cells false
+		       return false;
+		    }
+		};
 		table = new JTable(model);
 		JScrollPane scrollPane = new JScrollPane(table);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);

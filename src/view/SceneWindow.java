@@ -45,7 +45,14 @@ public class SceneWindow extends JFrame {
 		setContentPane(contentPane);
 		String[] columns = {"Scene ID", "Description", "Indoor/Outdoor","Location/Theater ID", "Total time"};
 
-		DefaultTableModel model = new DefaultTableModel(convert(sceneList),columns);
+		DefaultTableModel model = new DefaultTableModel(convert(sceneList),columns) {
+			@Override
+		    public boolean isCellEditable(int row, int column) {
+		       //all cells false
+		       return false;
+		    }
+		};
+		
 		table = new JTable(model);
 		JScrollPane scrollPane = new JScrollPane(table);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);

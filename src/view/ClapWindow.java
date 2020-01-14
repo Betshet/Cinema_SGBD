@@ -49,7 +49,13 @@ public class ClapWindow extends JFrame {
 		setContentPane(contentPane);
 		String[] columns = {"Clap ID", "Duration", "Film roll ID"};
 
-		DefaultTableModel model = new DefaultTableModel(convert(clapList),columns);
+		DefaultTableModel model = new DefaultTableModel(convert(clapList),columns){
+			@Override
+		    public boolean isCellEditable(int row, int column) {
+		       //all cells false
+		       return false;
+		    }
+		};
 		table = new JTable(model);
 		JScrollPane scrollPane = new JScrollPane(table);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
