@@ -37,6 +37,16 @@ public class controlWindow {
 		DAOSetup control=new DAOSetup(entityManagerFactory);
 		ArrayList<Setup> buffer = control.findAllSetup();
 		
+		//Retire les setup ne correspondant pas à la scène
+		for(int i=0;i<buffer.size();i++)
+		{
+			if(buffer.get(i).getSc().getId()!=sceneID)
+			{
+				buffer.remove(i);
+				i--;
+			}
+		}
+		
 		SetupWindow setupWindow = new SetupWindow(buffer,entityManagerFactory);
 		setupWindow.afficher();
 	}
@@ -46,6 +56,16 @@ public class controlWindow {
 		DAOClap control=new DAOClap(entityManagerFactory);
 		ArrayList<Clap> buffer = control.findAllClap();
 		
+		//Retire les clap ne correspondant pas au setup
+		for(int i=0;i<buffer.size();i++)
+		{
+			if(buffer.get(i).getSetup().getId()!=setupID)
+			{
+				buffer.remove(i);
+				i--;
+			}
+		}
+				
 		ClapWindow clapWindow = new ClapWindow(buffer,entityManagerFactory);
 		clapWindow.afficher();
 	}
