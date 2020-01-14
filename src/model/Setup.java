@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 public class Setup {
 
@@ -14,10 +17,15 @@ public class Setup {
 	private String setupDescription;
 	
 	@OneToMany(fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Clap> listClaps;
 	
 	@ManyToOne
 	private Scene sc;	
+	
+	public Setup() {
+	
+	}
 	
 	public Setup(String desc, List<Clap> listClaps, Scene sc) {
 		

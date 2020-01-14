@@ -2,6 +2,10 @@ package model;
 
 import java.util.List;
 import javax.persistence.Entity;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,13 +20,11 @@ public class Scene {
 	private String sceneDescription;
 	
 	@OneToMany(fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Setup> listSetup;
 	
 	public Scene()
 	{
-		id=-1;
-		sceneDescription = null;
-		listSetup = null;
 	}
 	
 	public Scene(String desc, List<Setup> listSetup) {

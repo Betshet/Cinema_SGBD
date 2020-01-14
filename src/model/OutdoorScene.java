@@ -11,7 +11,12 @@ public class OutdoorScene extends Scene {
 	@OneToOne
 	@JoinColumn(name="LOCATION_ID")
 	private Location location;
+	
 	private String shootingHour;
+	
+	public OutdoorScene() {
+		
+	}
 	
 	public OutdoorScene( String desc, List<Setup> listSetup, Location location, String shootingHour) {
 		super(desc, listSetup);

@@ -19,6 +19,10 @@ public class Clap {
 	@ManyToOne
 	private Setup setup;
 	
+	public Clap() {
+		
+	}
+	
 	public Clap(long sceneDuration, FilmRoll roll, Setup setup) {
 
 		this.sceneDuration = sceneDuration;
