@@ -31,6 +31,7 @@ public class Setup {
 		
 		this.setupDescription = desc;
 		this.listClaps = listClaps;
+		this.sc = sc;
 	}
 	public int getId() {
 		return id;

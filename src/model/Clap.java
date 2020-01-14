@@ -27,6 +27,7 @@ public class Clap {
 
 		this.sceneDuration = sceneDuration;
 		this.roll = roll;
+		this.setup = setup;
 	}
 	
 	public int getId() {
