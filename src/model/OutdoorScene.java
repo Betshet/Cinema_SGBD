@@ -13,8 +13,8 @@ public class OutdoorScene extends Scene {
 	private Location location;
 	private String shootingHour;
 	
-	public OutdoorScene(int id, String desc, List<Setup> listSetup, Location location, String shootingHour) {
-		super(id, desc, listSetup);
+	public OutdoorScene( String desc, List<Setup> listSetup, Location location, String shootingHour) {
+		super(desc, listSetup);
 		try {		
 			this.location = location;
 			this.shootingHour = shootingHour;

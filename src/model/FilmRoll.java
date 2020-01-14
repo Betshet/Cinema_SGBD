@@ -1,18 +1,20 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class FilmRoll {
 
-@Id
-private static int id;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
  
 	
 	public FilmRoll() {
-		FilmRoll.id++;
+		
 	}
 
 	public int getId() {

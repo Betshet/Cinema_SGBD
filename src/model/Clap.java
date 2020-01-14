@@ -8,8 +8,9 @@ public class Clap {
 	
 
 	@Id
-	//TODO Generation auto d'id
-	private static int id = 0;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	
 	private long sceneDuration;
 	
 	@ManyToOne
@@ -19,7 +20,6 @@ public class Clap {
 	private Setup setup;
 	
 	public Clap(long sceneDuration, FilmRoll roll, Setup setup) {
-		Clap.id++;
 		this.sceneDuration = sceneDuration;
 		this.roll = roll;
 	}
@@ -29,7 +29,7 @@ public class Clap {
 	}
 	
 	public void setId(int id) {
-		Clap.id = id;
+		this.id = id;
 	}
 	
 	public long getSceneDuration() {

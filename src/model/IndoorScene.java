@@ -11,8 +11,8 @@ public class IndoorScene extends Scene {
 	@JoinColumn(name="THEATER_ID")
 	private Theater theater;
 
-	public IndoorScene(int id, String desc, List<Setup> listSetup, Theater theater) {
-		super(id, desc, listSetup);
+	public IndoorScene(String desc, List<Setup> listSetup, Theater theater) {
+		super(desc, listSetup);
 		this.theater = theater;
 	}
 

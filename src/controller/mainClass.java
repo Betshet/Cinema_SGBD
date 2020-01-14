@@ -30,7 +30,7 @@ public class mainClass {
 		List<Scene> scList = new ArrayList<Scene>();
 		
 		Location loc = new Location(1,"Paris","Tour eiffel");
-		OutdoorScene sc = new OutdoorScene(1,"lorem ipsum",null, loc, "DAY");
+		OutdoorScene sc = new OutdoorScene("lorem ipsum",null, loc, "DAY");
 		FilmRoll roll = new FilmRoll();
 		PopulateScene(sc,roll);
 		

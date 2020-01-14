@@ -8,8 +8,9 @@ import javax.persistence.*;
 public class Setup {
 
 	@Id
-	//TODO Generation auto d'id
-	private static int id = 0;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	
 	private String setupDescription;
 	
 	@OneToMany
@@ -20,7 +21,7 @@ public class Setup {
 	
 	
 	public Setup(String desc, List<Clap> listClaps, Scene sc) {
-		Setup.id++;
+		
 		this.setupDescription = desc;
 		this.listClaps = listClaps;
 	}
@@ -28,7 +29,7 @@ public class Setup {
 		return id;
 	}
 	public void setId(int id) {
-		Setup.id = id;
+		this.id = id;
 	}
 	public String getDesc() {
 		return setupDescription;
