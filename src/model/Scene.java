@@ -53,7 +53,4 @@ public class Scene {
 		this.listSetup = listSetup;
 	}
 	
-	
-	
-	
 }

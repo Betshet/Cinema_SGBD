@@ -69,9 +69,10 @@ public class SetupWindow extends JFrame {
 		
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
-	            controlWindow ctrl = new controlWindow(factory);
-	            ctrl.launchClapWindow((int)table.getValueAt(table.getSelectedRow(), 0));
-	           
+	        	if(!event.getValueIsAdjusting()) {
+		            controlWindow ctrl = new controlWindow(factory);
+		            ctrl.launchClapWindow((int)table.getValueAt(table.getSelectedRow(), 0));
+	        	}
 	        }
 	    });
 	}

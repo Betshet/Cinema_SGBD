@@ -67,13 +67,6 @@ public class ClapWindow extends JFrame {
 		
 		contentPane.setLayout(gl_contentPane);
 		
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-	        public void valueChanged(ListSelectionEvent event) {
-	            controlWindow ctrl = new controlWindow(factory);
-	            ctrl.launchClapWindow((int)table.getValueAt(table.getSelectedRow(), 0));
-	           
-	        }
-	    });
 	}
 	
 	public void afficher()
