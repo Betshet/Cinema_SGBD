@@ -14,7 +14,6 @@ public class FilmRoll {
  
 	
 	public FilmRoll() {
-		
 	}
 
 	public int getId() {

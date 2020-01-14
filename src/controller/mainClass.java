@@ -11,8 +11,11 @@ import java.util.Random;
 
 import javax.persistence.*;
 
+import org.hibernate.SessionFactory;
+
 import model.Clap;
 import model.FilmRoll;
+import model.IndoorScene;
 import model.Location;
 import model.OutdoorScene;
 import model.Scene;
@@ -53,15 +56,11 @@ public class mainClass {
 			em.persist(current);
 		}
 		em.getTransaction().commit();
-
-		em.close();
-
-
-		SceneWindow scW = new SceneWindow(scList);
-		scW.afficher();
 		
-
-
+		em.close();
+		
+		controlWindow control = new controlWindow(factory);
+		control.launchSceneWindow();
 
 	}
 	

@@ -15,6 +15,7 @@ public class OutdoorScene extends Scene {
 	
 	public OutdoorScene( String desc, List<Setup> listSetup, Location location, String shootingHour) {
 		super(desc, listSetup);
+
 		try {		
 			this.location = location;
 			this.shootingHour = shootingHour;

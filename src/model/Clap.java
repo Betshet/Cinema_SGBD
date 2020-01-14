@@ -20,6 +20,7 @@ public class Clap {
 	private Setup setup;
 	
 	public Clap(long sceneDuration, FilmRoll roll, Setup setup) {
+
 		this.sceneDuration = sceneDuration;
 		this.roll = roll;
 	}

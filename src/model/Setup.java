@@ -13,12 +13,11 @@ public class Setup {
 	
 	private String setupDescription;
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Clap> listClaps;
 	
 	@ManyToOne
-	private Scene sc;
-	
+	private Scene sc;	
 	
 	public Setup(String desc, List<Clap> listClaps, Scene sc) {
 		

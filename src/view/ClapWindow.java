@@ -20,6 +20,7 @@ import model.Scene;
 import model.Setup;
 
 import javax.swing.JButton;
+import javax.persistence.EntityManagerFactory;
 import javax.sound.sampled.Control;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -33,11 +34,14 @@ public class ClapWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
+	
+	private EntityManagerFactory factory;
 
 	/**
 	 * Create the frame.
 	 */
-	public ClapWindow(List<Clap> clapList) {
+	public ClapWindow(List<Clap> clapList, EntityManagerFactory factory) {
+		this.factory=factory;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 400);
 		contentPane = new JPanel();
@@ -63,13 +67,6 @@ public class ClapWindow extends JFrame {
 		
 		contentPane.setLayout(gl_contentPane);
 		
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-	        public void valueChanged(ListSelectionEvent event) {
-	            controlWindow ctrl = new controlWindow();
-	            ctrl.launchClapWindow((int)table.getValueAt(table.getSelectedRow(), 0));
-	           
-	        }
-	    });
 	}
 	
 	public void afficher()

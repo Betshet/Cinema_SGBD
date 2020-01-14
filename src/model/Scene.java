@@ -15,7 +15,7 @@ public class Scene {
 	
 	private String sceneDescription;
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Setup> listSetup;
 	
 	public Scene()
@@ -54,8 +54,5 @@ public class Scene {
 	public void setListSetup(List<Setup> listSetup) {
 		this.listSetup = listSetup;
 	}
-	
-	
-	
 	
 }
